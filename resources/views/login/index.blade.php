@@ -1,41 +1,38 @@
 @extends('layouts.login')
 @section('container')
-<div class="container">
-        <div class="row text-center ">
-            <div class="col-md-12">
-                <br /><br />
-                <h2> LOGIN | PERPUSTAKAAN WIKRAMA</h2>
-                 <br />
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                @if (session('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session ('loginError') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <div class="container">
+                    <main class="form-login">
+                        <form action="{{ route('login.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <h1 class="h3 mb-3 fw-normal">Login Form</h1>
+                            <div class="form-floating">
+                                <input type="text" name="username" class="form-control mt-2" id="username" placeholder="Username" autofocus>
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" name="password" class="form-control mt-2" id="password" placeholder="Password">
+                                <label for="password">Password</label>
+                            </div>
+                            <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Login</button>
+                        </form>
+                    </main>
+                </div>
             </div>
-        </div>
-         <div class="row ">
-               
-                  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                        <strong>  Masukan Username dan Password</strong>  
-                            </div>
-                            <div class="panel-body">
-                                <form role="form" method="POST">
-                                       <br />
-                                     <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" class="form-control" placeholder="Masukan Username " name="nama" />
-                                        </div>
-                                    <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="bi bi-file-lock-fill"></i></span>
-                                            <input type="password" class="form-control"  placeholder="Masukan Password" name="pass" />
-                                        </div>
-                                
-                                		<div class="form-group input-group">
-                                            
-                                            <input type="submit" class="btn btn-primary"  name="login" value="Login" />
-                                        </div>
-                                    </form>
-                            </div>
-   
-                        </div>
-                    </div>   
         </div>
     </div>
 @endsection
