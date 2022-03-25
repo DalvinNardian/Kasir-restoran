@@ -23,12 +23,6 @@ class UserSeeder extends Seeder
                 'role' => 'Admin',
             ],
             [
-                'name' => 'Mohamad Asep Saepulloh',
-                'username' => 'asep30',
-                'password' => Hash::make('asep30'),
-                'role' => 'Manager',
-            ],
-            [
                 'name' => 'Udin',
                 'username' => 'udin',
                 'password' => Hash::make('udin'),
