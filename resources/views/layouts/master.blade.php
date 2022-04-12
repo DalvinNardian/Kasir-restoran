@@ -25,6 +25,7 @@ Coded by www.creative-tim.com
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <!-- CSS Files -->
@@ -38,13 +39,13 @@ Coded by www.creative-tim.com
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="../assets/img/logo-small.png">
           </div>
           <!-- <p>CT</p> -->
         </a>
-        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/dashboardA" class="simple-text logo-normal">
           Cafe
         <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -109,7 +110,12 @@ Coded by www.creative-tim.com
             </a>
           </li>
     @endif
-      
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">
+          <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span></a>
+        </li>
       </div>
     </div>
     <div class="main-panel">
