@@ -24,7 +24,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets') }}/img/apple-icon.png">
 <link rel="icon" type="image/png" href="{{ asset('assets') }}/img/icon1.png">
 <title>
-Cafe Ngopi Kuy
+Cafe Bisa Ngopi
 </title>
 <!--     Fonts and icons     -->
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -64,8 +64,7 @@ Cafe Ngopi Kuy
             <hr class="horizontal light mt-0 mb-2">
             <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <!-- Nav Item - Pages Collapse Menu -->
-    {{-- feature if user have role Admin --}}
+            {{-- feature if user have role Admin --}}
     @if (auth()->user()->role == 'Admin')   
 
     <li class="{{ request()->is('admin') ? 'active' : '' }} nav-item">
@@ -76,10 +75,13 @@ Cafe Ngopi Kuy
      
         <ul class="nav">
           <li class="{{ request()->is('admin') ? 'active' : '' }} nav-item">
-            <a href="{{ route('admin.index') }}">
-              <i class="nc-icon nc-single-02"></i>
-              <p>User</p>
-            </a>
+          <a href="{{ route('admin.index') }}">
+          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+          <i class="material-icons opacity-10">person</i>
+          <span class="nav-link-text ms-1">User</span>
+          </div>
+          
+          </a>
           </li>
     @endif
 
@@ -93,15 +95,19 @@ Cafe Ngopi Kuy
                 </li>
           <li class="{{ request()->is('manager/menu') ? 'active' : '' }} nav-item">
             <a href="{{ route('menu.index') }}">
-              <i class="fa-solid fa-utensils"></i>
-              <p>Menu</p>
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">menu_book</i>
+            <span class="nav-link-text ms-1">Menu</span>  
+          </div>
             </a>
           </li>
           <li class="{{ request()->is('manager/laporan') ? 'active' : '' }} nav-item">
             <a href="/manager/laporan">
-              <i class="fa-solid fa-file-lines"></i>
-              <p>Laporan</p>
-            </a>
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+           <i class="material-icons opacity-10">summarize</i>
+           <span class="nav-link-text ms-1">Laporan</span>
+           </div>
+           </a>
           </li>
     @endif
     
@@ -115,11 +121,13 @@ Cafe Ngopi Kuy
                 </li>
           <li class="{{ request()->is('kasir') ? 'active' : '' }} nav-item">
             <a href="{{ route('kasir.index') }}">
-              <i class="fa-solid fa-file-invoice"></i>
-              <p>Transaksi</p>
-            </a>
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">receipt_long</i>
+            <span class="nav-link-text ms-1">Transaksi</span>
+            </div>
+             </a>
           </li>
-        @endif
+    @endif
 
             </ul>
             </div>
@@ -148,13 +156,13 @@ Cafe Ngopi Kuy
                 @auth()
                     @if(Auth::user()->role == 'admin')
                         <li title="Dashboard" class="nav-item d-flex align-items-center">
-                        <a href="{{ route('admin.user.index') }}" class="nav-link text-body font-weight-bold px-0">
+                        <a href="{{ route('admin.index') }}" class="nav-link text-body font-weight-bold px-0">
                             <i class="material-icons">account_circle</i>
                         </a>
                         </li>
                     @elseif(Auth::user()->role == 'kasir')
                         <li title="Dashboard" class="nav-item d-flex align-items-center">
-                        <a href="{{ route('kasir.transaksi.index') }}" class="nav-link text-body font-weight-bold px-0">
+                        <a href="{{ route('kasir.index') }}" class="nav-link text-body font-weight-bold px-0">
                             <i class="material-icons">account_circle</i>
                         </a>
                         </li>
@@ -202,11 +210,11 @@ Cafe Ngopi Kuy
                 @yield('breadcrumb')
                 @yield('content')
 
-                <footer class="footer small text-end text-black-50"><div class="container px-4 px-lg-5">Copyright &copy; Dalvin Cafe Bisa Ngopi 2022</div></footer>
+                <footer class="footer small text-end text-black-50"><div class="container px-4 px-lg-5">Copyright &copy; Cofe Ngopi Kuy 2022</div></footer>
             </div>
         </main>
     
-      
+          
     @endauth
 
     @guest

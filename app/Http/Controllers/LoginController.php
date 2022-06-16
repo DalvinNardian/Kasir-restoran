@@ -45,11 +45,11 @@ class LoginController extends Controller
         }
 
         if (Auth::user()->role == 'Admin') {
-            return redirect()->route('dashboard.dashboardA')->with('success', 'Welkam admin');
+            return redirect()->route('dashboard.dashboardA')->with('success', 'Welcome admin');
         } elseif (Auth::user()->role == 'Manager') {
-            return redirect()->route('dashboard.dashboardM')->with('success', 'Welkam manager');
+            return redirect()->route('dashboard.dashboardM')->with('success', 'Welcome manager');
         } else (Auth::user()->role == 'Kasir');{
-            return redirect()->route('dashboard.dashboardK')->with('success', 'Welkam kasir');
+            return redirect()->route('dashboard.dashboardK')->with('success', 'Welcome kasir');
         }
     }
 

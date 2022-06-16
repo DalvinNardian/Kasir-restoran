@@ -43,7 +43,7 @@ Route::middleware('masuk')->group(function() {
 
     
     // route untuk dashboard manager
-    Route::get('/dashboardM', function() {
+    Route::get('/manager', function() {
         return view('dashboard.dashboardM');
     })->middleware('mManager')->name('dashboard.dashboardM');
     // route untuk halaman menu
@@ -52,8 +52,10 @@ Route::middleware('masuk')->group(function() {
     Route::get('/manager/laporan', function() {
         return view('manager.laporan.index');
     })->middleware('mManager');
-    // route
-    Route::get('/get-transaksi', [TransaksiController::class, 'filtering']); 
+    // route untun mengambil selurh data transaksi yang dipakai di filtering
+    Route::get('/get-transaksi', [TransaksiController::class, 'filtering'])->middleware('mManager');
+    // route untuk cetak pdf
+    Route::get('/manager/laporan/cetak_pdf', [TransaksiController::class, 'cetak_pdf'])->middleware('mManager');
 
 
 

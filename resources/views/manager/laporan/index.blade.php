@@ -29,10 +29,12 @@
 
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#filterModal">
-                    Filter Transaksi
+                <button type="button" class="btn btn-primary float-right ml-2" data-toggle="modal" data-target="#filterModal">
+                    <i class="fa-solid fa-filter"></i>
                 </button>
+                <a href="/manager/laporan/cetak_pdf" class="btn btn-danger float-right" target="_blank">
+                    <i class="fa-solid fa-print"></i>
+                </a>
                 <h2>Daftar Transaksi</h2>
             </div>
         </div>
@@ -56,6 +58,7 @@
             <th>Nama Pegawai</th>
             <th>Tanggal</th>
         </tr>
+        
         <tbody id="loadDataTransaksi">
 
         </tbody>
@@ -81,7 +84,6 @@
                 })
             })
         }
-
         async function getData(url = '/get-transaksi') {
             try {
                 const respons = await hitData(url, null, 'GET')
@@ -90,14 +92,12 @@
                 console.log(error);
             }
         }
-
         function filtering() {
             var startDate = $('#startDate').val()
             var endDate = $('#endDate').val()
             getData(`/get-transaksi?start_date=${startDate}&end_date=${endDate}`, null, 'GET')
             $('#filterModal').modal('hide')
         }
-
         getData();
     </script>
 @endsection
